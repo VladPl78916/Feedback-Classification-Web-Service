@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Добавить отзыв</h1>
+<form action="" method="POST" class="form-container">
+    {% csrf_token %}
+    {% for f in form %}
+        <div class="form-group">
+            <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
+            {{ f }}
+            <div class="form_error">{{ f.errors }}</div>
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <button type="submit">Отправить</button>
+    </div>
+</form>
+</body>
+</html>

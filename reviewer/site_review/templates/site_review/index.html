@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search" method="get" action="{% url 'search' %}">
+
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name='do' autocomplete="off" id="search">
+</form>
+
+<h1>Компании</h1>
+<ul>
+    {% for p in posts %}
+        <li>
+            <a href="{{p.get_absolute_url}}">{{p.company_name}}</a>
+            <p>Отзывов всего: {{p.total_reviews}}</p>
+            <p>Положительные отзывы: {{p.positive_reviews}}</p>
+            <p>Негативные отзывы: {{p.negative_reviews}}</p>
+
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
