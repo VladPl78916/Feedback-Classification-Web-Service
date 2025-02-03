@@ -5,9 +5,9 @@ from django.views.generic import ListView, CreateView, DetailView
 import plotly.graph_objects as go
 from site_review.forms import ReviewForm
 from site_review.models import Companies, ReviewStatistics
-from .predictor.predictor import load_model, predict_text
+from .predictor_tool.predictor import load_model, predict_text
 import torch
-
+from site_review.vocab import Vocabulary
 
 class HomePage(ListView):
     model = ReviewStatistics
