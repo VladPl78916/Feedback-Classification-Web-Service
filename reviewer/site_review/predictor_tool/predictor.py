@@ -1,12 +1,11 @@
 from .ml_models import TextCNN
 import torch
-import pickle
-# from .vocab import Vocabulary
+import dill
+from site_review.vocab import Vocabulary
 
 
-with open('site_review/predictor/vocab.pkl', 'rb') as f:
-    vocab = pickle.load(f)
-
+with open('site_review/predictor_tool/vocab_dl.dill', 'rb') as f:
+    vocab = dill.load(f)
 
 # Функция для загрузки модели
 def load_model(model_path):
