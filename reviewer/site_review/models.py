@@ -11,7 +11,6 @@ class Companies(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        # slugi = slugify(self.company_name, lowercase=True, separator='-')
         stats = ReviewStatistics.objects.get_or_create(
             company_name=self.company_name)[0]
         # Обновление статистики
@@ -45,7 +44,6 @@ class ReviewStatistics(models.Model):
         verbose_name_plural = 'Статистика отзывов'
 
     def save(self, *args, **kwargs):
-        print(self.slug)
         if not self.slug:
             self.slug = slugify(self.company_name,
                                 lowercase=True, separator='-')
