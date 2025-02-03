@@ -1,9 +1,12 @@
+import pickle
 from django.contrib.postgres.search import TrigramSimilarity
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
 import plotly.graph_objects as go
 from site_review.forms import ReviewForm
 from site_review.models import Companies, ReviewStatistics
+from .predictor.predictor import load_model, predict_text
+import torch
 
 
 class HomePage(ListView):
@@ -42,8 +45,14 @@ class CreateReview(CreateView):
     def form_valid(self, form):
         w = form.save(commit=False)
         w.company_name = w.company_name.lower().capitalize()
-        rev = w.review
-        w.type_review = False
+        model = load_model('model_learn/textcnn_model.pth')
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model = model.to(device)
+        with open('predictor/vocab.pkl', 'rb') as f:
+            vocab = pickle.load(f)
+        prediction = predict_text(model, w.review, vocab, device)
+        # rev = w.review
+        w.type_review = prediction
         return super().form_valid(form)
 
 
