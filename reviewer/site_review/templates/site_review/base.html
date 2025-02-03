@@ -8,6 +8,26 @@
 	<title>Главная страница</title>
 </head>
 <body>
-	
+<nav>
+	<div class="menu">
+		<div class="logo">
+			<svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="52" cy="52" r="52" fill="#93D7CE"/>
+			</svg>					
+		</div>
+		<ul>
+			<li class="otchet">Загрузить отчет</li>
+			<li class="otchet">Отчеты о компаниях</li>
+			<div class="d1">
+				<form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search" method="get" action="{% url 'search' %}"></form>
+				<input type="search" placeholder="Искать здесь..." aria-label="Search" name='do' autocomplete="off" id="search">
+				<button type="submit"></button>
+				</form>
+			  </div>
+		</ul>
+	</div>
+
+</nav>
+
 </body>
 </html>
