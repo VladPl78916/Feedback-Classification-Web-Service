@@ -78,18 +78,19 @@ body{
 
   .menu{
 	width: 100vw;
-	height: 12vh;
+	height: 9.5vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.5625vw;
-	margin: 0.1875vw 0.625vw 0;
+	background-color: #222222;
+	color: #eeeeee;
   }
 
 
   .logo{
 	width: 35vw;
-	margin-left: 0.625vw;
+	margin-left: 2vw;
 	height: 12vh;
 	display: flex;
 	justify-content:left;
@@ -106,6 +107,8 @@ body{
 	list-style: none;
 	align-items: center;
 	justify-content: center;
+	color: #eeeeee;
+
   }
 
   .container-otchet{
@@ -114,6 +117,7 @@ body{
 	text-align: center;
 	font-weight: bold;
 	align-items: center;
+	
   }
   .container-otchet li{
 	width: 50%;
@@ -121,7 +125,7 @@ body{
 
   .container-otchet li a{
 	text-decoration: none;
-	color:black;
+	color: #eeeeee;
 	transition: color 0.5s;
   }
   .container-otchet li a:hover{
@@ -145,7 +149,7 @@ body{
 	outline: none;
 	font-size: 1.4375vw;
 	background: white;
-	color: #9E9C9C;
+	background-color: #222222;
 	border-bottom: 0.1875vw solid #9E9C9C;
 	
   }
@@ -157,11 +161,11 @@ body{
 	display: none;
   }
   .d1 button {
+	background-color: #222222;
 	width: 30%;
 	text-align: left;
 	font-size: 1.6875vw;
 	border: none;
-	background-color: white;
 	border-radius: 0 0.3125vw 0.3125vw 0;
 	cursor: pointer;
 	
@@ -169,7 +173,7 @@ body{
 
   .line{
 	width: 100%;
-	border-bottom: 0.4375vw solid #88D4D0;
+	border-bottom: 0.4375vw solid #222222;
   }
 
 main{
@@ -177,16 +181,17 @@ main{
 }
 .footer{
 	flex-shrink: 0;
-	height: 14vh;
+	height: 12vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #E4F2F1;
+	background-color: #353535;
+	color: #eeeeee;
 
 }
 .footer ul{
 	list-style: none;
-	height: 14vh;
+	height: 12vh;
 
 }
 
@@ -198,6 +203,7 @@ main{
 }
 .authors{
 	text-align: center;
+	align-items: center;
 }
 .footer-authors ul{
 	width: 20%;
@@ -219,8 +225,7 @@ main{
 
 .authors li a{
 	text-decoration: underline;
-	
-	color:black;
+	color: #eeeeee;
 	transition: color 0.5s;
   }
   .authors li a:hover{

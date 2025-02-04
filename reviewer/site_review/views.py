@@ -59,7 +59,12 @@ class CreateReview(CreateView):
         print(prediction)
         w.type_review = prediction
         return super().form_valid(form)
-
+    
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['company_name'] = self.request.GET.get('company', '')
+        print(self.request.GET.get('company', ''))
+        return initial
 
 class Statistic(DetailView):
     model = ReviewStatistics

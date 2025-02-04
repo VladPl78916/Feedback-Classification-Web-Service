@@ -56,5 +56,10 @@ class ReviewStatistics(models.Model):
         return reverse('statistic', kwargs={'post_slug': self.slug})
     
     @property
-    def percent(self):
+    def percent_pos(self):
         return (self.positive_reviews / self.total_reviews) * 100
+    
+    @property
+    def percent_neg(self):
+        return (self.negative_reviews/self.total_reviews) * 100
+    

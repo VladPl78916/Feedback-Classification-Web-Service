@@ -11,10 +11,11 @@
                 <div class="like-container">
                     <div class="like2">
                         <div class="like-block">
-                            <p>{{p.percent|floatformat:0}}%</p>
-                            {% if p.percent > 50 %}
+                            {% if p.percent_pos >= 50 %}
+                            <p>{{p.percent_pos|floatformat:0}}%</p>
                                 <i class="bi bi-hand-thumbs-up"></i>
                             {% else %}
+                            <p>{{p.percent_neg|floatformat:0}}</p>
                                 <i class="bi bi-hand-thumbs-down"></i>
                             {% endif %}
                         </div>
@@ -25,7 +26,7 @@
                     <a href="{{p.get_absolute_url}}">{{p.company_name}}</a>
                 </div>
                 <div class="review-container">
-                    <a href="form/">Добавить отзыв о компании</a>
+                    <a href="{% url 'form' %}?company={{p.company_name}}">Добавить отзыв о компании</a>
                 </div>
             </li>
             <div class="line-mini"></div>
