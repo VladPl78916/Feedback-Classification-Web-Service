@@ -12,13 +12,14 @@ from googletrans import Translator
 
 class HomePage(ListView):
     model = ReviewStatistics
-    template_name = 'site_review/base.html'
+    template_name = 'site_review/index.html'
     context_object_name = 'posts'
+
 
 
 class Search(ListView):
     model = ReviewStatistics
-    template_name = 'site_review/base.html'
+    template_name = 'site_review/index.html'
     context_object_name = 'posts'
 
     def get_queryset(self):

@@ -54,3 +54,7 @@ class ReviewStatistics(models.Model):
 
     def get_absolute_url(self):
         return reverse('statistic', kwargs={'post_slug': self.slug})
+    
+    @property
+    def percent(self):
+        return (self.positive_reviews / self.total_reviews) * 100
