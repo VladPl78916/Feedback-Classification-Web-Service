@@ -16,9 +16,9 @@ class Companies(models.Model):
         # Обновление статистики
         stats.total_reviews += 1
         if self.type_review == 1:
-            stats.positive_reviews += 1
-        elif self.type_review == 0:
             stats.negative_reviews += 1
+        elif self.type_review == 0:
+            stats.positive_reviews += 1
         stats.save()
 
     class Meta:

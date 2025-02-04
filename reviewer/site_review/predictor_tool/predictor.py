@@ -33,6 +33,8 @@ def predict_text(model, text, vocab, device, max_len=100):
     model.eval()
     with torch.no_grad():
         output = model(encoded_text)
+        print(torch.sigmoid(
+            output))
         prediction = torch.round(torch.sigmoid(
             output)).item()  # Преобразуем в 0 или 1
 

@@ -1,4 +1,3 @@
-import pickle
 from django.contrib.postgres.search import TrigramSimilarity
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
@@ -7,6 +6,8 @@ from site_review.forms import ReviewForm
 from site_review.models import Companies, ReviewStatistics
 from .predictor_tool.predictor import load_model, predict_text
 import torch
+import dill
+from googletrans import Translator
 
 
 class HomePage(ListView):
@@ -45,14 +46,17 @@ class CreateReview(CreateView):
     def form_valid(self, form):
         w = form.save(commit=False)
         w.company_name = w.company_name.lower().capitalize()
-        # model = load_model('model_learn/textcnn_model.pth')
-        # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        # model = model.to(device)
-        # with open('predictor/vocab.pkl', 'rb') as f:
-        #     vocab = pickle.load(f)
-        # prediction = predict_text(model, w.review, vocab, device)
-        # rev = w.review
-        w.type_review = False
+        model = load_model('site_review/predictor_tool/textcnn_model.pth')
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model = model.to(device)
+        with open('site_review/predictor_tool/vocab_dl.dill', 'rb') as f:
+            vocab = dill.load(f)
+        translator = Translator()
+        translation = translator.translate(w.review, src='ru', dest='en')
+        print(translation.text)
+        prediction = predict_text(model, translation.text, vocab, device)
+        print(prediction)
+        w.type_review = prediction
         return super().form_valid(form)
 
 
