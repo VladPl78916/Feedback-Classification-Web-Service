@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from slugify import slugify
 import plotly.graph_objects as go
-from PIL import Image
-import matplotlib.pyplot as plt
 
 
 class Companies(models.Model):
