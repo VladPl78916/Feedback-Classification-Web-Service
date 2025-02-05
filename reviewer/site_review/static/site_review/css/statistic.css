@@ -1,0 +1,94 @@
+.company{
+	background-color: #FFFFFF;
+	width: 95vw;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+}
+
+.diagram{
+	width: 55vw;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.info{
+	width: 45vw;
+}
+.info p{
+	display: flex;
+	justify-content: center;
+}
+.name-company{
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	font-size: 55px;
+}
+.review-counter{
+	height: 8vh;
+	display: flex;
+	text-align: center;
+	justify-content: center;	
+	align-items: center;
+	font-size: 35px;
+	color: #474343;
+}
+.pos-neg{
+	height: 20vh;
+	font-size: 30px;
+
+}
+
+.positive{
+	display: flex;
+	align-items: center;
+	text-align: left;
+	height: 50%
+}
+.negative{
+	align-items: center;
+	text-align: left;
+	display: flex;
+	height: 50%
+
+}
+.block-line{
+	margin-left: 60px;
+	margin-right: 20px;
+	width: 132px;
+	height: 44px;
+	border-radius: 6.5px;
+}
+.positive .block-line{
+	background-color: rgb(0, 112, 0);
+}
+.negative .block-line{
+	background-color: rgb(187, 0, 0);
+}
+
+.create-review{
+	height: 14vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 35px;
+}
+.create-review a{
+	text-decoration: none;
+	color:black;
+	transition: color 0.5s;
+	border-bottom: 0.1875vw solid black;
+
+  }
+  .create-review a:hover{
+	border-bottom: 0.1875vw solid #9E9C9C;
+	color: #8d8d8e;
+	
+  }

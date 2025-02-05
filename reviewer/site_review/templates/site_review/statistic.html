@@ -1,14 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Статистика</title>
-</head>
-<body>
-<h1>{{post.company_name}}</h1>
-<p>Всего отзывов: {{post.total_reviews}}</p>
-<p>Положительных отзывов: {{post.positive_reviews}}</p>
-<p>Негативных отзывов: {{post.negative_reviews}}</p>
-<p>{{diagram|safe}}</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block dop_info %}
+<link type="text/css" href="../../static/site_review/css/statistic.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<div class="company">
+    <div class="info">
+        <div class="name-company">
+            <p>{{post.company_name}}</p>
+        </div>
+        <div class="review-counter">
+            <p>Количество отзывов: {{post.total_reviews}}</p>
+        </div>
+        <div class="pos-neg">
+            <div class="positive">
+                <div class="block-line"></div>
+                <p>Положительных отзывов: {{post.positive_reviews}}</p>
+            </div>
+            <div class="negative">
+                <div class="block-line"></div>
+                <p>Негативных отзывов: {{post.negative_reviews}}</p>
+            </div>
+        </div>
+        <div class="create-review">
+            <a href="{% url 'form' %}?company={{post.company_name}}">Добавить отзыв о компании</a>
+        </div>
+
+    </div>  
+    <div class="diagram">
+        <p>{{diagram|safe}}</p>
+    </div>
+</div>
+{% endblock %}

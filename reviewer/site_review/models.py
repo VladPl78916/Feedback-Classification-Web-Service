@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from slugify import slugify
+import plotly.graph_objects as go
 
 
 class Companies(models.Model):
@@ -54,3 +55,12 @@ class ReviewStatistics(models.Model):
 
     def get_absolute_url(self):
         return reverse('statistic', kwargs={'post_slug': self.slug})
+    
+    @property
+    def percent_pos(self):
+        return (self.positive_reviews / self.total_reviews) * 100
+    
+    @property
+    def percent_neg(self):
+        return (self.negative_reviews/self.total_reviews) * 100
+    

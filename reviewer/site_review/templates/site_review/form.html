@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Добавить отзыв</h1>
-<form action="" method="POST" class="form-container">
-    {% csrf_token %}
-    {% for f in form %}
-        <div class="form-group">
-            <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
-            {{ f }}
-            <div class="form_error">{{ f.errors }}</div>
+{% extends 'base.html' %}
+{%block dop_info%}
+<link type="text/css" href="../../static/site_review/css/forms.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="forma">
+    <div class="head">
+    <p>Отзыв</p>
+
+    <form action="" method="POST" class="form-container">
+        {% csrf_token %}
+        {% for f in form %}
+            <div class="form-group">
+                <div class="bukvi">
+                    <p>{{ f.label }}</p>
+                </div>
+                <div class="pole-forma">{{ f }}</div>
+                <div class="form_error">{{ f.errors }}</div>
+            </div>
+        {% endfor %}
+        <div class="form-submit">
+            <button type="submit">Отправить</button>
         </div>
-    {% endfor %}
-    <div class="form-group">
-        <button type="submit">Отправить</button>
+    </form>
     </div>
-</form>
-</body>
-</html>
+</div>
+{% endblock %}
