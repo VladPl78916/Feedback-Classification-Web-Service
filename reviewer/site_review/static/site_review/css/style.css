@@ -162,6 +162,7 @@ body{
   }
   .d1 button {
 	background-color: #222222;
+	color: #9E9C9C;
 	width: 30%;
 	text-align: left;
 	font-size: 1.6875vw;
@@ -178,6 +179,13 @@ body{
 
 main{
 	flex: 1 0 auto;
+}
+main{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	background-color: #eeeeee;
 }
 .footer{
 	flex-shrink: 0;

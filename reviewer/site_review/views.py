@@ -16,7 +16,6 @@ class HomePage(ListView):
     context_object_name = 'posts'
 
 
-
 class Search(ListView):
     model = ReviewStatistics
     template_name = 'site_review/index.html'
@@ -66,6 +65,7 @@ class CreateReview(CreateView):
         print(self.request.GET.get('company', ''))
         return initial
 
+
 class Statistic(DetailView):
     model = ReviewStatistics
     template_name = 'site_review/statistic.html'
@@ -75,10 +75,20 @@ class Statistic(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         vals = [self.object.positive_reviews, self.object.negative_reviews]
-        labels = ['positive', 'negative']
+        labels = ['Положительные', 'Отриацтельные']
+        colors = ['rgb(0, 112, 0)', 'rgb(187, 0, 0)']
         fig = go.Figure(data=go.Pie(
-            labels=labels, values=vals, textinfo='none'))
-        fig.update_layout(width=500, height=500)
+            labels=labels, values=vals, textinfo='none', marker=dict(colors=colors), ))
+        fig.update_layout(width=672, height=573, legend=dict(
+        orientation='h', 
+        yanchor='bottom', 
+        y=1.1,  
+        xanchor='center', 
+        x=0.5,
+          font=dict(
+            size=23, 
+            color='black'
+    )))
         graph_html = fig.to_html(full_html=False)
         context['diagram'] = graph_html
         return context

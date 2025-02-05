@@ -7,7 +7,11 @@
 <div class="posts">
     <ul>
         {% for p in posts %}
-            <li>
+            {% if forloop.counter|divisibleby:2 %}
+            <li style="background-color: #F7F8FA;">
+            {% else %}
+            <li style="background-color: #FFFFFF;">
+            {% endif %}
                 <div class="like-container">
                     <div class="like2">
                         <div class="like-block">
@@ -29,7 +33,8 @@
                     <a href="{% url 'form' %}?company={{p.company_name}}">Добавить отзыв о компании</a>
                 </div>
             </li>
-            <div class="line-mini"></div>
+            </li>
+            <!-- <div class="line-mini"></div> -->
         {% endfor %}
     </ul>
 </div>
